@@ -22,18 +22,20 @@
         </thead>
 
         <tbody>
+            @foreach($informations as $information)
             <tr>
-                <td>1</td>
-                <td>Hasan</td>
-                <td>Uzbek</td>
-                <td>+998916487373</td>
-                <td>hasanhafizov258@gmail.com</td>
+                <td>{{ $information->id }}</td>
+                <td>{{ $information->name }}</td>
+                <td>{{ $information->language }}</td>
+                <td>{{ $information->phonenumber }}</td>
+                <td>{{ $information->email }}</td>
                 <td>
                     <button>Edit</button>
                     <button>Show</button>
                     <button>Delete</button>
                 </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 

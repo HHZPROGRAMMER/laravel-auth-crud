@@ -14,12 +14,19 @@ class CrudController extends Controller
     }
 
     public function create(){
-
+        return view('create');
     }
 
-    public function store(Request $request){
-
-    }
+        public function store(Request $request){
+            $informations=$request->validate([
+                'name'=>'required',
+                'language'=>'required',
+                'email'=>'required|email',
+                'phonenumber'=>'required',
+            ]);
+            Information::create($informations);
+            return redirect()->route('index');
+        }
 
     public function show($id){
 

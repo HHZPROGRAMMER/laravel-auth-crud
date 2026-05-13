@@ -9,11 +9,13 @@
 <body>
     
 
-    <form action="" method="POST">
-        <input type="text" name='name' placeholder="Ismingizni kiriting">
-        <input type="text"name='language' placeholder="Tilni kiriting">
-        <input type="text" name='phonenumber' placeholder="Telefon raqamingizni kiriting">
-        <input type="text" name='email' placeholder="Emailingizni kiriting">
+    <form action="{{ route('store') }}" method="POST">
+        @csrf
+        <input type="text" name='name' placeholder="Ismingizni kiriting"><br><br>
+        <input type="text"name='language' placeholder="Tilni kiriting"><br><br>
+        <input type="text" name='phonenumber' placeholder="Telefon raqamingizni kiriting"><br><br>
+        <input type="text" name='email' placeholder="Emailingizni kiriting"><br><br>
+        <input type="submit" value=Submit>
     </form>
 
 
