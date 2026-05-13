@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show</title>
+</head>
+<body>
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Malumotlar</title>
 </head>
 <body>
-
-    <button><a href="{{ route('create') }}">Create</a></button>
     
 
     <table border="1" cellspacing="0" cellpadding="10">
@@ -24,29 +33,30 @@
         </thead>
 
         <tbody>
-            @foreach($informations as $information)
             <tr>
-                <td>{{ $information->id }}</td>
-                <td>{{ $information->name }}</td>
-                <td>{{ $information->language }}</td>
-                <td>{{ $information->phonenumber }}</td>
-                <td>{{ $information->email }}</td>
+                <td>{{ $informations->id }}</td>
+                <td>{{ $informations->name }}</td>
+                <td>{{ $informations->language }}</td>
+                <td>{{ $informations->phonenumber }}</td>
+                <td>{{ $informations->email }}</td>
                 <td>
-                    <button><a href="{{ route('show', $information->id) }}">Show</a></button>
-                    <button><a href="{{ route('edit', $information->id) }}">Edit</a></button>
-                    <form action="{{ route('destroy', $information->id) }}" method="POST">
+                    <button><a href="{{ route('edit', $informations->id) }}">Edit</a></button>
+                    <button><a href="{{ route('index') }}">Back</a></button>
+                    <form action="{{ route('destroy', $informations->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" onclick="return confirm('Haqiqatdan ham ochirmoqchimisiz!!!')">
                             Delete
                         </button>
-                    </form>
                 </td>
             </tr>
-            @endforeach
         </tbody>
     </table>
 
+
+
+</body>
+</html>
 
 
 </body>
