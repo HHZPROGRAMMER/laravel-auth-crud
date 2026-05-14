@@ -15,12 +15,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Malumotlar</title>
 </head>
-<body>
+<body class="bg-yellow-200">
     
 
-    <table border="1" cellspacing="0" cellpadding="10">
+<div class="container mx-auto px-4 py-8">
+    <table class="min-w-full divide-y divide-gray-200 shadow-sm rounded-lg overflow-hidden">
         <thead>
             <tr>
                 <th>#</th>
@@ -40,18 +42,28 @@
                 <td>{{ $informations->phonenumber }}</td>
                 <td>{{ $informations->email }}</td>
                 <td>
-                    <button><a href="{{ route('edit', $informations->id) }}">Edit</a></button>
-                    <button><a href="{{ route('index') }}">Back</a></button>
-                    <form action="{{ route('destroy', $informations->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" onclick="return confirm('Haqiqatdan ham ochirmoqchimisiz!!!')">
-                            Delete
-                        </button>
+                    <div class="flex flex-row gap-2">
+                        <div class="btns bg-green-200 p-2 rounded-lg w-[30%]">
+                            <button><a href="{{ route('edit', $informations->id) }}">Edit</a></button>
+                        </div>
+                        <div class="btns bg-blue-200 p-2 rounded-lg w-[30%]">
+                            <button><a href="{{ route('index') }}">Back</a></button>
+                        </div>
+                        <div class="flex gap-2 btns bg-red-200 p-2 rounded-lg w-[30%]">
+                            <form action="{{ route('destroy', $informations->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Haqiqatdan ham ochirmoqchimisiz!!!')">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
+</div>
 
 
 
